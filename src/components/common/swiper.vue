@@ -2,7 +2,7 @@
   <div class="wrapper">
     <swiper :options="swiperOption">
       <!-- slides -->
-      <swiper-slide v-for="item in swiperList" :key="item.id">
+      <swiper-slide v-for="item in swiperList1" :key="item.id">
         <a href="#">
           <img class="swiper-img" :src="item.imgUrl" >
         </a>
@@ -16,16 +16,15 @@
 <script>
   export default {
     name:'MySwiper',
+    props:{
+      swiperList1:Array
+    },
     data(){
       return {
         swiperOption:{
           pagination:'.swiper-pagination',
           loop:true
-        },
-        swiperList:[
-          {id:'0001',imgUrl:'https://yantuz.cn/mmPic/'},
-          {id:'0002',imgUrl:'https://yantuz.cn/mmPic/?t=qipao'}
-        ]
+        }
       }
     }
   }
@@ -38,12 +37,10 @@
     overflow hidden
     width: 100%;
     height:0
-    padding-bottom:50%
+    padding-bottom:32%
     background:#ccc
     a
       display block
-      height 0
-      padding-bottom 50%
       .swiper-img
         width: 100%
 </style>

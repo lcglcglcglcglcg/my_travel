@@ -2,8 +2,8 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item boeder-bottom" v-for="item in recommends" :key="item.id">
-        <img class="item-img" src="https://yantuz.cn/mmPic/?333" alt="">
+      <li class="item boeder-bottom" v-for="item in recommendList" :key="item.id">
+        <img class="item-img" :src="item.imgUrl" alt="">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
           <p class="item-desc">{{item.desc}}</p>
@@ -17,14 +17,11 @@
 <script>
   export default {
     name:'MyRecommend',
+    props:{
+      recommendList:Array
+    },
     data(){
       return {
-        recommends:[
-          {id:'001',title:'大连省海洋世界',desc:'我的不舒服觉得还是开发还是数据放到还是尽快发货'},
-          {id:'002',title:'大连省海洋世界',desc:'我的不舒服觉得还是开发还是数据放到还是尽快发货'},
-          {id:'003',title:'大连省海洋世界',desc:'我的不舒服觉得还是开发还是数据放到还是尽快发货'},
-          {id:'004',title:'大连省海洋世界',desc:'我的不舒服觉得还是开发还是数据放到还是尽快发货'}
-        ]
       }
     }
   }
