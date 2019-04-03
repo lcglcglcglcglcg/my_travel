@@ -42,7 +42,8 @@
     background:#ccc
     a
       display block
+      height 0
+      padding-bottom 50%
       .swiper-img
-        display block
         width: 100%
 </style>

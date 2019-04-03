@@ -4,7 +4,7 @@
       <swiper-slide v-for="(page,index) in pages" :key="index">
         <div class="icon" v-for="item in page" :key="item.id">
           <a class="icon-a" href="">
-            <img class="icon-img" :src="item.imgUrl" alt="">
+            <img class="icon-img" src="https://uploadbeta.com/api/pictures/random/?key=女" alt="">
             <p class="icon-title">{{item.desc}}</p>
           </a>
         </div>
@@ -22,15 +22,15 @@
           //loop:true
         },
         iconList:[
-          {id:'001',imgUrl:'http://wx4.sinaimg.cn/small/97ca63e6ly8fwrqjyo9kaj205k05k0tl.jpg',desc:'张新建金额泡温泉'},
-          {id:'002',imgUrL:'http://wx4.sinaimg.cn/small/97ca63e6ly8fwrqjyo9kaj205k05k0tl.jpg',desc:'泡温泉'},
-          {id:'003',imgUrL:'http://wx4.sinaimg.cn/small/97ca63e6ly8fwrqjyo9kaj205k05k0tl.jpg',desc:'泡温泉'},
-          {id:'004',imgUrL:'http://wx4.sinaimg.cn/small/97ca63e6ly8fwrqjyo9kaj205k05k0tl.jpg',desc:'泡温泉'},
-          {id:'005',imgUrL:'http://wx4.sinaimg.cn/small/97ca63e6ly8fwrqjyo9kaj205k05k0tl.jpg',desc:'泡温泉'},
-          {id:'006',imgUrL:'http://wx4.sinaimg.cn/small/97ca63e6ly8fwrqjyo9kaj205k05k0tl.jpg',desc:'泡温泉'},
-          {id:'007',imgUrL:'http://wx4.sinaimg.cn/small/97ca63e6ly8fwrqjyo9kaj205k05k0tl.jpg',desc:'泡温泉'},
-          {id:'008',imgUrL:'http://wx4.sinaimg.cn/small/97ca63e6ly8fwrqjyo9kaj205k05k0tl.jpg',desc:'泡温泉'},
-          {id:'009',imgUrL:'http://wx4.sinaimg.cn/small/97ca63e6ly8fwrqjyo9kaj205k05k0tl.jpg',desc:'温泉'}
+          {id:'001',dessc:'张新建金额泡温泉'},
+          {id:'002',desc:'泡温泉'},
+          {id:'003',desc:'泡温泉'},
+          {id:'004',desc:'泡温泉'},
+          {id:'005',desc:'泡温泉'},
+          {id:'006',desc:'泡温泉'},
+          {id:'007',desc:'泡温泉'},
+          {id:'008',desc:'泡温泉'},
+          {id:'009',desc:'温泉'}
         ]
       }
     },
@@ -57,22 +57,25 @@
     widht:100%
     height: 0
     padding-bottom: 50%
-  .icon
-    overflow hidden
-    float left
-    width 25%
-    height 0
-    padding-bottom 25%
-    .icon-a
-      text-align center
-      .icon-img
-        display block
-        margin .1rem auto 0
-        width 70%
-      .icon-title
-        line-height .44rem
-        font-size 12px
-        font-weight bold
-        color $darkTextColor
-        ellipsis()
+  .icons
+    margin-top .1rem
+    .icon
+      overflow hidden
+      float left
+      width 25%
+      height 0
+      padding-bottom 25%
+      .icon-a
+        text-align center
+        .icon-img
+          display block
+          width 70%
+          margin .1rem auto 0
+          border-radius 50%
+        .icon-title
+          line-height .44rem
+          font-size 12px
+          font-weight bold
+          color $darkTextColor
+          ellipsis()
 </style>
