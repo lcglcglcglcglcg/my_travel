@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import MyHeader from '../common/header'
-import MySwiper from '../common/swiper'
-import MyIcons from '../common/icons'
-import MyRecommend from '../common/recommend'
+import MyHeader from './components/header'
+import MySwiper from './components/swiper'
+import MyIcons from './components/icons'
+import MyRecommend from './components/recommend'
   export default {
     name:'Home',
     data(){

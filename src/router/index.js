@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import MyHeader from '@/components/home/home'
+import Home from '@/components/home/Home'
+import City from '@/components/city/City'
 
 Vue.use(Router)
 
@@ -8,8 +9,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'MyHeader',
-      component: MyHeader
+      redirect: '/home'
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/city',
+      name: 'City',
+      component: City
     }
   ]
 })

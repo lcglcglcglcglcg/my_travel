@@ -7,10 +7,12 @@
       <span class="iconfont">&#xe632;</span>
       输入城市/景点/游戏主题
     </div>
-    <div class="header-right">
+    <router-link to="/city">
+      <div class="header-right">
       {{this.city}}
-      <span class="iconfont arrow-icon">&#xe64a;</span>
-    </div>
+        <span class="iconfont arrow-icon">&#xe64a;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -40,7 +42,7 @@ export default {
       width:.64rem
       float left
       .back-icon
-        text-align center
+        margin-left .2rem
         font-size:.4rem
     .header-input
       flex:1
@@ -51,6 +53,7 @@ export default {
       border-radius:.1rem
       color: #ccc
     .header-right
+      color #fff
       width:1.24rem
       float right
       text-align: center
