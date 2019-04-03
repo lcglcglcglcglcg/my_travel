@@ -24,7 +24,7 @@
         },
         swiperList:[
           {id:'0001',imgUrl:'https://yantuz.cn/mmPic/'},
-          {id:'0002',imgUrl:'https://yantuz.cn/mmPic/'}
+          {id:'0002',imgUrl:'https://yantuz.cn/mmPic/?t=qipao'}
         ]
       }
     }
@@ -34,13 +34,15 @@
 <style lang="stylus" scoped >
   .wrapper >>> .swiper-pagination-bullet-active
       background: red !important
-  .wrapper
-    // overflow hidden
+  .wrapper >>> .swiper-container
+    overflow hidden
     width: 100%;
     height:0
-    padding-bottom:31.25%
+    padding-bottom:50%
     background:#ccc
-    .swiper-img
-     width: 100%
-
+    a
+      display block
+      .swiper-img
+        display block
+        width: 100%
 </style>
