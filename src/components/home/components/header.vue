@@ -9,7 +9,7 @@
     </div>
     <router-link to="/city">
       <div class="header-right">
-      {{this.city}}
+        {{this.doubleCity}}
         <span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
     </router-link>
@@ -17,46 +17,57 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
 export default {
-  name: 'MyHeader',
-  props:{
-    city:String
-  },
-  data () {
-    return {
-
-    }
+  name: "MyHeader",
+  computed: {
+    ...mapState(['city']),
+    ...mapGetters(['doubleCity']),
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
- @import '~styles/varibles.styl'
-  .header
-    display:flex
-    line-height :.86rem
-    background: $bgColor
-    color: #fff
-    .header-left
-      width:.64rem
-      float left
-      .back-icon
-        margin-left .2rem
-        font-size:.4rem
-    .header-input
-      flex:1
-      height: .64rem
-      line-height: .64rem
-      margin: .12rem 0 0 .2rem
-      background-color #fff
-      border-radius:.1rem
-      color: #ccc
-    .header-right
-      color #fff
-      width:1.24rem
-      float right
-      text-align: center
-      .arrow-icon
-        font-size: .24rem
+@import '~styles/varibles.styl';
+@import '~styles/mixins.styl';
+
+.header {
+  display: flex;
+  line-height: 0.86rem;
+  background: $bgColor;
+  color: #fff;
+
+  .header-left {
+    width: 0.64rem;
+    float: left;
+
+    .back-icon {
+      margin-left: 0.2rem;
+      font-size: 0.4rem;
+    }
+  }
+
+  .header-input {
+    flex: 1;
+    height: 0.64rem;
+    line-height: 0.64rem;
+    margin: 0.12rem 0 0 0.2rem;
+    background-color: #fff;
+    border-radius: 0.1rem;
+    color: #ccc;
+  }
+
+  .header-right {
+    color: #fff;
+    min-width: 1.04rem;
+    padding: 0 0.1rem;
+    float: right;
+    text-align: center;
+
+    .arrow-icon {
+      font-size: 0.24rem;
+    }
+  }
+}
 </style>
