@@ -2,8 +2,8 @@
   <div class="city">
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :hotCities='hotCities' :cities="cities"></city-list>
-    <city-alphabet :cities="cities"></city-alphabet>
+    <city-list :letter="letter" :hotCities='hotCities' :cities="cities"></city-list>
+    <city-alphabet :cities="cities" @change='handleLetterClick'></city-alphabet>
   </div>
 </template>
 
@@ -17,7 +17,8 @@ import CityAlphabet from './components/Alphabet'
     data(){
       return {
         hotCities:[],
-        cities:{}
+        cities:{},
+        letter:''
       }
     },
     components:{
@@ -36,6 +37,9 @@ import CityAlphabet from './components/Alphabet'
           }
         })
         .catch((err)=>console.log(err))
+      },
+      handleLetterClick(title){
+        this.letter = title
       }
     },
     mounted(){

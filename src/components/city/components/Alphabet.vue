@@ -1,31 +1,92 @@
 <template>
   <ul class="list">
-    <li class="item" v-for="(item,key) in cities" :key="key">{{key}}</li>
+    <li
+      class="item"
+      v-for="item in letters"
+      :key="item"
+      :ref="item"
+      @click="handleLetterClick"
+      @touchstart="handleTouchStart"
+      @touchmove="handleTouchMove"
+      @touchend="handleTouchEnd"
+    >{{item}}</li>
   </ul>
 </template>
 
 <script>
-  export default {
-    name: 'CityAlphabet',
-    props:{
-      cities:Object
+import { clearTimeout, setTimeout } from "timers";
+export default {
+  name: "CityAlphabet",
+  props: {
+    cities: Object
+  },
+  data() {
+    return {
+      touchStatus: false,
+      startY: 0,
+      timer: null
+    };
+  },
+  updated() {
+    this.startY = this.$refs["A"][0].offsetTop;
+  },
+  computed: {
+    letters() {
+      const letters = [];
+      for (let i in this.cities) {
+        letters.push(i);
+      }
+      return letters;
+    }
+  },
+  methods: {
+    handleLetterClick(e) {
+      this.$emit("change", e.target.innerText);
+    },
+    handleTouchStart() {
+      this.touchStatus = true;
+    },
+    handleTouchMove(e) {
+      if (!this.touchStatus) {
+        return;
+      }
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.timer = setTimeout(() => {
+        const touchY = e.touches[0].clientY - 89;
+        const itemHeight = e.target.clientHeight;
+        const index = ((touchY - this.startY) / itemHeight) | 0;
+        if (index >= 0 && index < this.letters.length) {
+          this.$emit("change", this.letters[index]);
+          console.log(index);
+        }
+      }, 20);
+    },
+    handleTouchEnd() {
+      this.touchStatus = false;
     }
   }
+};
 </script>
 
 <style lang="stylus" scoped >
-@import '~styles/varibles.styl'
- .list
-  display flex
-  flex-direction column
-  justify-content center
-  position absolute
-  top 1.78rem
-  right 0
-  bottom 0
-  width .4rem
-  .item
-    line-height .44rem
-    text-align center
-    color $bgColor
+@import '~styles/varibles.styl';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 1.78rem;
+  right: 0;
+  bottom: 0;
+  width: 0.4rem;
+
+  .item {
+    line-height: 0.44rem;
+    text-align: center;
+    color: $bgColor;
+  }
+}
 </style>
