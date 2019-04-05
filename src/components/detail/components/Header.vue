@@ -26,6 +26,9 @@
     activated(){
       window.addEventListener('scroll',this.handleScroll)
     },
+    deactivated(){
+      window.removeEventListener('scroll',this.handleScroll)
+    },
     methods:{
       back() {
         this.$router.go(-1);
