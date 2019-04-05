@@ -3,7 +3,7 @@
     <div class="wrapper">
       <swiper :options="swiperOption">
         <swiper-slide v-for="(item,index) in imgs" :key="index">
-          <img class="gallary-img" :src="item.imgUrl" >
+          <img class="gallary-img" :src="item" >
         </swiper-slide>
         <div class="swiper-pagination"  slot="pagination"></div>
       </swiper>
@@ -40,8 +40,8 @@
 </script>
 
 <style lang="stylus" scoped >
-  // .container >>> .swiper-container
-  //   overflow inherit
+  .container >>> .swiper-container
+    overflow inherit
   .container
     display flex
     flex-direction column
@@ -55,7 +55,7 @@
     background #000
     .wrapper
       background #fff
-      overflow hidden
+      // overflow hidden
       width 100%
       height 0
       padding-bottom 100%
@@ -63,6 +63,6 @@
         width 100%
       .swiper-pagination
         color hotpink
-        top .5rem
+        bottom -1rem
         z-index 100
 </style>

@@ -3,18 +3,21 @@
     <div class="banner" ref="banner">
       <div class="banner-wrapper" @click="handleBannerClick">
         <div class="banner-img">
-          <img class="banner-img-box" :src="imgs[0].imgUrl">
+          <img class="banner-img-box" :src="bannerImg">
         </div>
         <div class="banner-info">
-          <div class="banner-title">大连圣亚海洋世界(AAAA景区)</div>
+          <div class="banner-title">{{sightName}}</div>
           <div class="banner-number">
             <span class="iconfont banner-icon">&#xe643;</span>
-            39
+            {{gallaryImgs.length}}
           </div>
         </div>
       </div>
     </div>
-    <common-gallary @close="handleGallaryClick" :imgs="imgs" v-show="showGallary"></common-gallary>
+    <common-gallary
+    @close="handleGallaryClick"
+    :imgs="gallaryImgs"
+    v-show="showGallary"></common-gallary>
   </div>
 </template>
 
@@ -23,17 +26,14 @@ import CommonGallary from "common/gallary/Gallary";
 import Bscroll from "better-scroll";
 export default {
   name: "DetailBanner",
+  props:{
+    sightName:String,
+    bannerImg:String,
+    gallaryImgs:Array
+  },
   data() {
     return {
-      showGallary: false,
-      imgs: [
-        { imgUrl: "https://yantuz.cn/mmPic/" },
-        { imgUrl: "https://yantuz.cn/mmPic/?333" },
-        { imgUrl: "https://yantuz.cn/mmPic/?33" },
-        { imgUrl: "https://yantuz.cn/mmPic/?3" },
-        { imgUrl: "https://yantuz.cn/mmPic/?4" },
-        { imgUrl: "https://yantuz.cn/mmPic/?5" }
-      ]
+      showGallary: false
     };
   },
   components: {
