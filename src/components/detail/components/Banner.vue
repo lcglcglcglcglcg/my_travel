@@ -67,9 +67,10 @@ export default {
       position: absolute;
       left: 0;
       right: 0;
+      bottom 0
       line-height: 0.6rem;
       color: #fff;
-      background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+      background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .6));
       .banner-title
         flex: 1;
         font-size: 0.32rem;
