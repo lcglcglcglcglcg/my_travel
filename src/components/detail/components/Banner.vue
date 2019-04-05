@@ -14,16 +14,20 @@
         </div>
       </div>
     </div>
-    <common-gallary
-    @close="handleGallaryClick"
-    :imgs="gallaryImgs"
-    v-show="showGallary"></common-gallary>
+    <FadeAnimation>
+      <common-gallary
+      @close="handleGallaryClick"
+      :imgs="gallaryImgs"
+      v-show="showGallary">
+      </common-gallary>
+    </FadeAnimation>
   </div>
 </template>
 
 <script>
 import CommonGallary from "common/gallary/Gallary";
 import Bscroll from "better-scroll";
+import FadeAnimation from 'common/fade/FadeAnimation'
 export default {
   name: "DetailBanner",
   props:{
@@ -37,7 +41,8 @@ export default {
     };
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   },
   mounted() {
     this.scroll = new Bscroll(this.$refs.banner);
